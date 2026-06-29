@@ -19,53 +19,7 @@ The entire stack is containerized and can be deployed on any major cloud (AWS, A
 
 ## Architecture
 
-![System Architecture](https://via.placeholder.com/800x400?text=System+Architecture+Diagram)  
-*(Note: Replace with actual diagram if hosted)*
-
-```mermaid
-flowchart TD
-    A[Data Sources & Synthetic Data] --> B[Ingestion & Interoperability Layer]
-    B --> C[Data Engineering Layer (Medallion Lakehouse)]
-    C --> D[Analytics & BI Layer]
-    C --> E[AI/ML Layer]
-
-    subgraph A [Data Sources]
-        A1[Synthea Generator]
-        A2[Simulated HL7 v2 Messages]
-        A3[DICOM/PACS (Orthanc)]
-        A4[Other APIs]
-    end
-
-    subgraph B [Ingestion & Interoperability Layer]
-        B1[FHIR Server (HAPI)]
-        B2[Integration Engine (Mirth Connect)]
-        B3[Terminology Server (Snowstorm)]
-        B4[Data Pipelines (Airflow)]
-    end
-
-    subgraph C [Data Engineering Layer]
-        C1[Bronze (Raw Data)] --> C2[Silver (Cleansed Data)] --> C3[Gold (Curated Data)]
-    end
-
-    subgraph E [AI/ML Layer]
-        E1[Model Training (Notebooks)]
-        E2[Model Serving (FastAPI)]
-        E3[Clinical Decision Support / RAG Chatbot]
-    end
-
-    A1 --> B1
-    A2 --> B2
-    A3 --> B4
-    A4 --> B4
-    B1 --> B4
-    B2 --> B4
-    B3 --> B1
-    B4 --> C
-    C --> D
-    C --> E1
-    E1 --> E2
-    E2 --> E3
-```
+<img width="1636" height="864" alt="image" src="https://github.com/user-attachments/assets/d94eded7-d2bd-4381-b83b-812e6998c370" />
 
 ---
 
